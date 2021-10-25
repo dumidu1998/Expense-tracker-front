@@ -18,7 +18,6 @@ function Card2() {
                     </div>
                 </div>
             </div>
-            {/* Chart built with Chart.js 3 */}
             <div className="">
                 <button className="btn justify-center items-center">
                     <div className="text-sm  flex flex-row font-semibold text-gray-400 uppercase mb-1 mt-8">
@@ -28,8 +27,6 @@ function Card2() {
                         </svg>
                     </div>
                 </button>
-                {/* Change the height attribute to adjust the chart height */}
-                {/* <LineChart data={chartData} width={389} height={128} />dumidu kasun bandara */}
             </div>
         </div >
     )

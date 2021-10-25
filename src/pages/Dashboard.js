@@ -25,6 +25,7 @@ function Dashboard() {
                     <LineGraph />
                     <PieChart />
                 </div>
+                {/* Home expenditures container */}
                 <div className="mx-1 my-5 border-2">
                     <HomeExpenseContainer />
                 </div>

@@ -10,8 +10,6 @@ function HomeExpenseContainer(props) {
             <div className="p-6 flex flex-col bg-primary-100">
                 <ExpenditureCards />
                 <ExpenditureCards />
-                <ExpenditureCards />
-                <ExpenditureCards />
             </div>
         </div>
     )
