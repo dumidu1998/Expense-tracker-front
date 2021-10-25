@@ -5,13 +5,14 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Navbar from './components/Navbar';
 
 
 function App() {
   return (
     <div className="App">
       <Router>
-
+        <Navbar />
         <Switch>
 
           {/* <Route path="/" exact component={Landing} />
