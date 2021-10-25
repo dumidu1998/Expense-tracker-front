@@ -66,12 +66,12 @@ export default function Navbar(props) {
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                                 <button
                                     type="button"
-                                    className="bg-gradient-to-r from-red-700 to-red-600 p-1 rounded-lg h-12 flex items-center justify-center  text-gray-50 hover:text-white hover:bg-blue-800"
+                                    className="bg-gradient-to-l from-black via-blue-700 to-black p-1 rounded-lg border-2 border-opacity-50 h-12 flex items-center justify-center  text-gray-50 hover:text-white hover:bg-blue-800"
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                                     </svg>
-                                    <span className="hidden lg:block lg:ml-3 md:ml-3 md:block">Add Expense</span>
+                                    <span className="hidden lg:block lg:mx-3 md:mx-3 md:block">Add Expense</span>
                                 </button>
                             </div>
                         </div>
