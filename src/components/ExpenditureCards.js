@@ -5,11 +5,11 @@ export default function ExpenditureCards() {
         <div className="rounded-xl bg-blue-400 p-3 mb-5 my-3 ">
             <div className="grid grid-cols-3 gap-1 md:-ml-8">
 
-                <div className="col-span-full flex justify-center md:col-span-1">
+                <div className="col-span-full flex justify-center md:col-span-1 lg:justify-start lg:ml-16 xl:justify-start xl::ml-16">
                     <img src="/fab.png" alt="badge" className="w-40" />
                 </div>
 
-                <div className="col-span-full md:col-span-1 md:flex md:items-start md:flex-col md:justify-center">
+                <div className="col-span-full md:col-span-1 md:flex md:items-start md:flex-col md:justify-center lg:justify-start xl:justify-start lg:items-start">
                     <div className="text-3xl font-bold md:text-2xl">Dinner at Avenra</div>
                     <div className="text-lg text-gray-900">Dinner with friends</div>
                     <div className="text-base text-gray-800">2018-10-25</div>
