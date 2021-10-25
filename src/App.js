@@ -6,6 +6,8 @@ import {
   Link
 } from "react-router-dom";
 import Navbar from './components/Navbar';
+import Dashboard from './pages/Dashboard';
+import Expenses from './pages/Expenses';
 
 
 function App() {
@@ -15,8 +17,9 @@ function App() {
         <Navbar />
         <Switch>
 
-          {/* <Route path="/" exact component={Landing} />
-          <Route path="/signup" exact component={Signup} />
+          <Route path="/" exact component={Dashboard} />
+          <Route path="/expenses" exact component={Expenses} />
+          {/* <Route path="/signup" exact component={Signup} />
           <Route path="/login" exact component={Login} />
           <Route path="/bar" exact component={DoughnutChart} />
           <Route path="/pie" exact component={BarChart} />

@@ -1,18 +1,21 @@
-import React, { Fragment } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import React, { Fragment, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 
-const navigation = [
-    { name: 'Dashboard', href: '/', current: window.location.pathname === "/" },
-    { name: 'My Expenses', href: 'expenses', current: window.location.pathname === "expenses" },
-
-]
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
-export default function Navbar() {
+export default function Navbar(props) {
+    const location = useLocation();
+
+    var navigation = [
+        { name: 'Dashboard', href: '/', current: location.pathname === "/" },
+        { name: 'My Expenses', href: 'expenses', current: location.pathname === "/expenses" },
+
+    ]
+
     return (
         <Disclosure as="nav" className="bg-gradient-to-r from-blue-500 to-blue-900">
             {({ open }) => (
@@ -49,7 +52,7 @@ export default function Navbar() {
                                                 key={item.name}
                                                 to={item.href}
                                                 className={classNames(
-                                                    item.current ? 'bg-blue-900 text-white' : 'text-gray-50 hover:bg-blue-700 hover:text-white',
+                                                    item.current ? 'bg-blue-900 text-white text-lg' : 'text-gray-50 hover:bg-blue-700 text-lg hover:text-white',
                                                     'px-3 py-2 rounded-md text-sm font-medium'
                                                 )}
                                                 aria-current={item.current ? 'page' : undefined}
