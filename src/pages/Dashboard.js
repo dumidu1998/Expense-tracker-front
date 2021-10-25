@@ -5,6 +5,7 @@ import Card3 from '../components/cards/Card3'
 import Card4 from '../components/cards/Card4'
 import LineGraph from '../components/graphs/LineGraph'
 import PieChart from '../components/graphs/PieChart'
+import HomeExpenseContainer from '../components/HomeExpenseContainer'
 import WelcomeBanner from '../components/WelcomeBanner'
 
 function Dashboard() {
@@ -23,6 +24,9 @@ function Dashboard() {
                 <div className="grid grid-cols-2 gap-6 mt-5 h-52">
                     <LineGraph />
                     <PieChart />
+                </div>
+                <div className="mx-1 my-5 border-2">
+                    <HomeExpenseContainer />
                 </div>
             </div>
         </>

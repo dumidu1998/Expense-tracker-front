@@ -12,19 +12,19 @@ function Card1() {
                             </svg>
                         </h2>
                         <div className="flex flex-col ml-4">
-                            <h2 className="text-3xl flex font-semibold text-gray-800 mb-2 ml-5">Acme Plus</h2>
-                            <h2 className="text-xl flex justify-center font-semibold text-gray-400 mb-2 ml-5">Acme Plus</h2>
+                            <h2 className="text-xl flex font-semibold text-gray-800 mb-2 ml-1">Expenditures in October</h2>
+                            <h2 className="text-xl flex justify-center font-semibold mb-2 ml-5">Rs. 25,000.00</h2>
                         </div>
                     </div>
-                    <div className="shadow w-full bg-grey-light border-1">
-                        <div className="bg-blue-700 text-xs leading-none py-1 text-center text-white" style={{ 'width': '45%' }}>45%</div>
+                    <div className="shadow w-full bg-grey-light border-1 mt-7 rounded-lg">
+                        <div className="bg-blue-800 text-xs rounded-lg leading-none py-1 text-center text-white" style={{ 'width': '65%' }}>65%</div>
                     </div>
                 </div>
             </div>
             {/* Chart built with Chart.js 3 */}
             <div className="flex-grow">
-                <h2 className="text-lg font-semibold text-gray-800 mb-2">1</h2>
-                <div className="text-xs font-semibold text-gray-400 uppercase mb-1">2</div>
+                {/* <h2 className="text-lg font-semibold text-gray-800 mb-2">1</h2> */}
+                {/* <div className="text-xs font-semibold text-gray-400 uppercase mb-1">2</div> */}
                 {/* Change the height attribute to adjust the chart height */}
                 {/* <LineChart data={chartData} width={389} height={128} />dumidu kasun bandara */}
             </div>
