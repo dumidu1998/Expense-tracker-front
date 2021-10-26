@@ -22,7 +22,7 @@ function AddModal() {
                     className="fixed inset-0 w-screen z-40 overflow-y-auto flex items-center justify-center backdrop-filter backdrop-blur-lg"
                     onClose={closeModal}
                 >
-                    <div className="min-h-screen w-10/12 px-4 md:w-1/3">
+                    <div className="min-h-screen w-11/12 lg:w-1/3 lg:px-0">
                         <Transition.Child
                             as={Fragment}
                             enter="ease-out duration-300"
@@ -34,7 +34,6 @@ function AddModal() {
                         >
                             <Dialog.Overlay className="fixed inset-0" />
                         </Transition.Child>
-                        {/* This element is to trick the browser into centering the modal contents. */}
                         <Transition.Child
                             as={Fragment}
                             enter="ease-out duration-300"
@@ -44,7 +43,7 @@ function AddModal() {
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <div className="flex flex-col w-full  p-5 my-10 overflow-hidden text-center items-center transition-all transform bg-gray-100 shadow-xl rounded-2xl ">
+                            <div className="flex flex-col w-full p-5 my-10 overflow-hidden text-center items-center transition-all transform bg-gray-100 shadow-xl rounded-2xl ">
                                 <Dialog.Title
                                     as="h3"
                                     className="text-2xl font-bold leading-6 text-primary-0 font-primary text-center"
@@ -54,7 +53,6 @@ function AddModal() {
                                 <div className="my-5 text-left ml-5">
                                     <div >
                                         <form>
-
                                             <div className="mt-5">
                                                 <h3 className="font-primary text-lg font-semibold">Title</h3>
                                                 <input type="text" name="name" className={`rounded-lg shadow-lg h-10 w-80 my-2 ml-1`} />
