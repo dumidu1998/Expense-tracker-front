@@ -1,22 +1,27 @@
 import { Fragment, useEffect, useState } from 'react'
-import { Dialog, Transition, Listbox } from '@headlessui/react'
-import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
+import { Dialog, Transition } from '@headlessui/react'
 import AddNewDatePicker from './AddNewDatePicker';
 import CatSelector from './CatSelector';
+import { useAtom } from 'jotai'
+import { modalopen } from '../App';
 
 function AddModal() {
-    let [isOpen, setIsOpen] = useState(true);
-
+    const [modalOpen, setModalOpen] = useAtom(modalopen);
     function closeModal() {
-        setIsOpen(false)
+        setModalOpen(false)
     }
 
     function openModal() {
-        setIsOpen(true)
+        setModalOpen(true)
     }
+
+    useEffect(() => {
+
+    }, [])
+
     return (
         <>
-            <Transition appear show={isOpen} as={Fragment}>
+            <Transition appear show={modalOpen} as={Fragment}>
                 <Dialog
                     as="div"
                     className="fixed inset-0 w-screen z-40 overflow-y-auto flex items-center justify-center backdrop-filter backdrop-blur-lg"

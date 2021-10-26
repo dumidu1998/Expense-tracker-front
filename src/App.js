@@ -8,7 +8,9 @@ import Navbar from './components/Navbar';
 import Dashboard from './pages/Dashboard';
 import Expenses from './pages/Expenses';
 import AddModal from './components/AddModal';
+import { atom } from 'jotai'
 
+export const modalopen = atom(false);
 
 function App() {
   return (

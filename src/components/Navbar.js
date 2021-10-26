@@ -2,13 +2,16 @@ import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
-
+import { useAtom } from 'jotai'
+import { modalopen } from '../App';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 export default function Navbar(props) {
     const location = useLocation();
+    const [modalOpen, setModalOpen] = useAtom(modalopen);
+
 
     var navigation = [
         { name: 'Dashboard', href: '/', current: location.pathname === "/" },
@@ -64,7 +67,7 @@ export default function Navbar(props) {
                                 </div>
                             </div>
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                                <button
+                                <button onClick={() => setModalOpen(true)}
                                     type="button"
                                     className="bg-black p-1 rounded-lg border-1 border-opacity-50 h-12 flex items-center justify-center  text-white hover:text-white hover:bg-blue-800"
                                 >
