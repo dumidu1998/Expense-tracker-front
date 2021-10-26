@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react'
 import DatePicker from './DatePicker'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
+import ExpenditureCards from './ExpenditureCards'
 
 const people = [
     { name: 'All', value: 'All' },
@@ -17,7 +18,7 @@ export default function ListAndFilter() {
 
     return (
         <div>
-            <header className="flex flex-row justify-end mx-8 mt-4">
+            <header className="flex flex-row justify-center md:justify-end mx-8 mt-4">
                 <DatePicker />
                 <div className="w-72 -mt-2">
                     <Listbox value={selected} onChange={setSelected}>
@@ -77,12 +78,8 @@ export default function ListAndFilter() {
 
             <div>
                 <div className="flex flex-row justify-between mx-8 mt-4">
-                    <div className="w-1/2">
-                        <div className="flex flex-row justify-between">
-                            <div className="w-1/2">
-                                asdasdasasd
-                            </div>
-                        </div>
+                    <div className="w-full">
+                        <ExpenditureCards extype="Transport" />
                     </div>
                 </div>
             </div>
