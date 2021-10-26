@@ -1,6 +1,29 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState, Fragment } from 'react'
+import { Dialog, Popover, Transition } from '@headlessui/react'
+
+import { useAtom } from 'jotai'
+import { editModal, modalopen } from '../../App';
 
 function Card1() {
+    const today = new Date()
+    const [amnt, setamnt] = useState(0);
+    const [precentage, setprecentaget] = useState(0);
+    const [modalOpen] = useAtom(modalopen);
+    const [editModalstate] = useAtom(editModal);
+
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/expense/cardsdata`)
+            .then(function (response) {
+                setamnt(response.data.totalSpent);
+                setprecentaget(response.data.expenseUsage);
+            })
+            .catch(function (error) {
+                console.log(error.response.data);
+            })
+    }, [modalOpen, editModalstate])
+
+
     return (
         <div className="flex flex-col col-span-full md:col-span-2 sm:col-span-4 xl:col-span-1 bg-white shadow-lg rounded-sm border border-gray-200">
             <div className="px-5 pt-5">
@@ -12,18 +35,27 @@ function Card1() {
                             </svg>
                         </h2>
                         <div className="flex flex-col ml-4">
-                            <h2 className="text-xl flex font-semibold text-gray-800 mb-2 ml-1">Total Spent in October</h2>
-                            <h2 className="text-xl flex justify-center font-semibold mb-2 ml-5">Rs. 25,000.00</h2>
+                            <h2 className="text-xl flex font-semibold text-gray-800 mb-2 ml-1">Total Spent in {today.toLocaleString('default', { month: 'long' })}</h2>
+                            <h2 className="text-xl flex justify-center font-semibold mb-2 ml-5">Rs. {amnt.toFixed(2)}</h2>
                         </div>
                     </div>
                     <div className="shadow w-full bg-grey-light border-1 mt-7 rounded-lg mb-4">
-                        <div className="bg-blue-800 text-xs rounded-lg leading-none py-1 text-center text-white" style={{ 'width': '65%' }}>65%</div>
+                        <div className="bg-blue-800 text-xs rounded-lg leading-none py-1 text-center text-white" style={{ 'width': `${precentage}%` }}>{precentage}%</div>
                     </div>
                 </div>
             </div>
             <div className="flex-grow">
 
             </div>
+
+
+
+
+
+
+
+
+
         </div >
     )
 }
