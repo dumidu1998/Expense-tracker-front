@@ -7,12 +7,14 @@ import {
 import Navbar from './components/Navbar';
 import Dashboard from './pages/Dashboard';
 import Expenses from './pages/Expenses';
+import AddModal from './components/AddModal';
 
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <AddModal />
         <Navbar />
         <Switch>
 

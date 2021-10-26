@@ -18,9 +18,9 @@ export default function ListAndFilter() {
 
     return (
         <div>
-            <header className="flex flex-row justify-center md:justify-end mx-8 mt-4">
+            <header className="flex flex-col justify-center md:justify-end mx-8 mt-4 md:flex-row">
                 <DatePicker />
-                <div className="w-72 -mt-2">
+                <div className="w-11/12 mx-auto mt-3 md:-mt-0 md:w-48">
                     <Listbox value={selected} onChange={setSelected}>
                         <div className="relative mt-1">
                             <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
@@ -79,7 +79,14 @@ export default function ListAndFilter() {
             <div>
                 <div className="flex flex-row justify-between mx-8 mt-4">
                     <div className="w-full">
+                        {/* <p className="text-grey-700 text-2xl md:text-lg">Jan</p> */}
+
+
                         <ExpenditureCards extype="Transport" />
+                        <ExpenditureCards extype="Transport" />
+                        <ExpenditureCards extype="Transport" />
+                        <ExpenditureCards extype="Transport" />
+
                     </div>
                 </div>
             </div>
