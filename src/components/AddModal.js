@@ -22,7 +22,7 @@ function AddModal() {
                     className="fixed inset-0 w-screen z-40 overflow-y-auto flex items-center justify-center backdrop-filter backdrop-blur-lg"
                     onClose={closeModal}
                 >
-                    <div className="min-h-screen w-10/12 px-4 ">
+                    <div className="min-h-screen w-10/12 px-4 md:w-1/3">
                         <Transition.Child
                             as={Fragment}
                             enter="ease-out duration-300"
@@ -79,9 +79,9 @@ function AddModal() {
                                 <div className="mt-0 mb-5">
                                     <button
                                         type="button"
-                                        className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                                        className="inline-flex justify-center px-4 py-2 text-base font-semibold text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                                     >
-                                        Book Now
+                                        Add Expense
                                     </button>
                                 </div>
                             </div>
