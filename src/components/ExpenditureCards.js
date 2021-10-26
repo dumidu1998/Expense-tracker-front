@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from 'react'
+import { useAtom } from 'jotai'
+import { editModal } from '../App';
+import { editId } from '../App';
+
 
 export default function ExpenditureCards(props) {
-
+    // eslint-disable-next-line
+    const [editModalstate, setEditModal] = useAtom(editModal);
+    // eslint-disable-next-line
+    const [editIdd, setEditId] = useAtom(editId);
     const [imga, setimg] = useState('/fab.png');
 
     useEffect(() => {
@@ -43,7 +50,7 @@ export default function ExpenditureCards(props) {
 
                 <div className="px-3 col-span-full md:col-span-1 md:justify-center md:flex md:flex-col md:items-end">
                     <div className="text-3xl font-bold">Rs. 1,500.00</div>
-                    <button className="float-right">
+                    <button className="float-right" onClick={() => { setEditId(12); setEditModal(true); }}>
                         <div className="text-gray-800 text-lg flex flex-row mt-5 items-center">
                             Edit
                             <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

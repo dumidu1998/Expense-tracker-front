@@ -10,6 +10,7 @@ function classNames(...classes) {
 }
 export default function Navbar(props) {
     const location = useLocation();
+    // eslint-disable-next-line
     const [modalOpen, setModalOpen] = useAtom(modalopen);
 
 
@@ -35,7 +36,7 @@ export default function Navbar(props) {
                                     )}
                                 </Disclosure.Button>
                             </div>
-                            <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                            <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start xl:justify-start 2xl:justify-start">
                                 <div className="flex-shrink-0 flex items-center">
                                     <img
                                         className="block lg:hidden h-12 w-auto"

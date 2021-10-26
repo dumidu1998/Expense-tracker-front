@@ -3,17 +3,19 @@ import { Dialog, Transition } from '@headlessui/react'
 import AddNewDatePicker from './AddNewDatePicker';
 import CatSelector from './CatSelector';
 import { useAtom } from 'jotai'
-import { modalopen } from '../App';
+import { editModal } from '../App';
+import { editId } from '../App';
 
-function AddModal() {
-    const [modalOpen, setModalOpen] = useAtom(modalopen);
+function EditModal() {
+    const [editModalstate, setEditModal] = useAtom(editModal);
+    const [editIdd] = useAtom(editId);
 
     function closeModal() {
-        setModalOpen(false)
+        setEditModal(false)
     }
 
     // function openModal() {
-    //     setModalOpen(true)
+    //     setEditModal(true)
     // }
 
     useEffect(() => {
@@ -22,7 +24,7 @@ function AddModal() {
 
     return (
         <>
-            <Transition appear show={modalOpen} as={Fragment}>
+            <Transition appear show={editModalstate} as={Fragment}>
                 <Dialog
                     as="div"
                     className="fixed inset-0 w-screen z-40 overflow-y-auto flex items-center justify-center backdrop-filter backdrop-blur-lg"
@@ -54,7 +56,7 @@ function AddModal() {
                                     as="h3"
                                     className="text-2xl font-bold leading-6 text-primary-0 font-primary text-center"
                                 >
-                                    Add New Expense
+                                    Edit My Expense{editIdd}
                                 </Dialog.Title>
                                 <div className="my-5 text-left ml-5">
                                     <div >
@@ -97,4 +99,4 @@ function AddModal() {
     )
 }
 
-export default AddModal
+export default EditModal

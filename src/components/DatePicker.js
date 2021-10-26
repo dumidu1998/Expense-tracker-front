@@ -22,7 +22,7 @@ export default function DatePicker() {
 
 
     return (
-        <div className="relative flex flex-col justify-center items-center sm:flex-row ">
+        <div className="flex flex-col justify-center items-center sm:flex-row">
             <p className="font-semibold mx-5 flex flex-row items-center">Filter Expenses <button className="btn text-gray-400 ml-5 text-lg md:text-base" onClick={() => { alert("aaa"); }}>Clear</button></p>
             <Flatpickr className="form-input px-4 border-2 mr-5 text-gray-500 h-8 hover:text-gray-600 font-medium focus:border-gray-300 w-60" options={options} />
         </div >
