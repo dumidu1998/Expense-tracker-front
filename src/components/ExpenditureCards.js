@@ -1,12 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-export default function ExpenditureCards() {
+export default function ExpenditureCards(props) {
+
+    const [imga, setimg] = useState('/fab.png');
+
+    useEffect(() => {
+        switch (props.extype) {
+            case 'fab':
+                setimg('/fab.png');
+                break;
+            case 'health':
+                setimg('/health.png');
+                break;
+            case 'transport':
+                setimg('/trans.png');
+                break;
+            case 'entertainment':
+                setimg('/entert.png');
+                break;
+            case 'other':
+                setimg('/other.png');
+                break;
+            default:
+                setimg('/other.png');
+                break;
+        }
+    }, [props.extype])
+
     return (
-        <div className="rounded-xl bg-blue-400 p-3 mb-5 my-3 ">
+        <div className="rounded-xl bg-blue-50 shadow-lg p-3 mb-1 my-1 ">
             <div className="grid grid-cols-3 gap-1 md:-ml-8">
 
-                <div className="col-span-full flex justify-center md:col-span-1 lg:justify-start lg:ml-16 xl:justify-start xl::ml-16">
-                    <img src="/fab.png" alt="badge" className="w-40" />
+                <div className="col-span-full flex justify-center md:col-span-1 lg:justify-start lg:ml-16 md:-mx-32 lg:-mx-32 xl:justify-start xl::ml-16">
+                    <img src={imga} alt="badge" className="w-24" />
                 </div>
 
                 <div className="col-span-full md:col-span-1 md:flex md:items-start md:flex-col md:justify-center lg:justify-start xl:justify-start lg:items-start">

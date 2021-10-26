@@ -8,8 +8,11 @@ function HomeExpenseContainer(props) {
                 <h1 className="text-2xl font-semibold">Last Expenditures</h1>
             </header>
             <div className="p-6 flex flex-col bg-primary-100">
-                <ExpenditureCards />
-                <ExpenditureCards />
+                <ExpenditureCards extype="fab" />
+                <ExpenditureCards extype="transport" />
+                <ExpenditureCards extype="health" />
+                <ExpenditureCards extype="entertainment" />
+                <ExpenditureCards extype="other" />
             </div>
         </div>
     )
