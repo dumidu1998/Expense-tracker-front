@@ -1,6 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios';
+import { useAtom } from 'jotai'
+import { editModal, modalopen } from '../../App';
 
 function Card4() {
+
+    const [lspent, setlspent] = useState(0);
+    const [precentage, setprecentaget] = useState(0);
+    const [modalOpen] = useAtom(modalopen);
+    const [editModalstate] = useAtom(editModal);
+    const [budget, setbudget] = useState(0);
+
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/budget`)
+            .then(function (response) {
+                setbudget(response.data);
+            })
+            .catch(function (error) {
+                console.log(error.response.data);
+            })
+
+
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/expense/cardsdata`)
+            .then(function (response) {
+                setlspent(response.data.lastExpense);
+                setprecentaget(response.data.lastExpense / budget * 100);
+            })
+            .catch(function (error) {
+                console.log(error.response.data);
+            })
+    }, [modalOpen, editModalstate])
     return (
         <div className="flex flex-col col-span-full md:col-span-2 sm:col-span-4 xl:col-span-1 bg-white shadow-lg rounded-sm border border-gray-200">
             <div className="px-5 pt-5">
@@ -13,13 +42,13 @@ function Card4() {
                         </h2>
                         <div className="flex flex-col ml-4">
                             <h2 className="text-3xl flex font-semibold text-gray-800 mb-2 ml-5">Last Expense</h2>
-                            <h2 className="text-xl flex justify-center font-semibold  mb-2 ml-5">Rs. 3,500.00</h2>
+                            <h2 className="text-xl flex justify-center font-semibold  mb-2 ml-5">Rs. {lspent}</h2>
                         </div>
                     </div>
                 </div>
             </div>
             <div className="flex-grow mt-7">
-                <div className="font-semibold text-gray-400 mb-1">7.5% from Total Budget</div>
+                <div className="font-semibold text-gray-400 mb-1">{precentage.toFixed(1)}% from Total Budget</div>
             </div>
         </div >
     )

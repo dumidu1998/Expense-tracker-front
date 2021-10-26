@@ -1,6 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios';
 
 function Card2() {
+
+    const [budget, setbudget] = useState(0);
+
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/budget`)
+            .then(function (response) {
+                setbudget(response.data);
+            })
+            .catch(function (error) {
+                console.log(error.response.data);
+            })
+    }, [])
+
     return (
         <div className="flex flex-col col-span-full md:col-span-2 sm:col-span-4 xl:col-span-1 bg-white shadow-lg rounded-sm border border-gray-200">
             <div className="px-5 pt-5">
@@ -13,7 +27,7 @@ function Card2() {
                         </h2>
                         <div className="flex flex-col ml-4">
                             <h2 className="text-2xl flex font-semibold text-gray-800 mb-2 ml-5">My Budget</h2>
-                            <h2 className="text-xl flex justify-center font-semibold mb-2 ml-5">Rs. 120,000.00</h2>
+                            <h2 className="text-xl flex justify-center font-semibold mb-2 ml-5">Rs. {budget.toLocaleString('en-US', { maximumFractionDigits: 2, minimumFractionDigits: 2 })}</h2>
                         </div>
                     </div>
                 </div>

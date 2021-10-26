@@ -1,6 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios';
+import { useAtom } from 'jotai'
+import { editModal, modalopen } from '../../App';
 
 function Card3() {
+
+
+    const [cat, setcat] = useState('');
+    const [precentage, setprecentaget] = useState(0);
+    const [modalOpen] = useAtom(modalopen);
+    const [editModalstate] = useAtom(editModal);
+
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/expense/cardsdata`)
+            .then(function (response) {
+                setcat(response.data.topSpentCat);
+            })
+            .catch(function (error) {
+                console.log(error.response.data);
+            })
+    }, [modalOpen, editModalstate])
+
     return (
         <div className="flex flex-col col-span-full md:col-span-2 sm:col-span-4 xl:col-span-1 bg-white shadow-lg rounded-sm border border-gray-200">
             <div className="px-5 pt-5">
@@ -13,7 +33,7 @@ function Card3() {
                         </h2>
                         <div className="flex flex-col ml-4">
                             <h2 className="text-2xl flex font-semibold text-gray-800 mb-2 ml-5">Top Spent Category</h2>
-                            <h2 className="text-xl flex justify-center font-semibold text-gray-600 mb-2 ml-5">Food and Beverages</h2>
+                            <h2 className="text-xl flex justify-center font-semibold text-gray-600 mb-2 ml-5">{cat}</h2>
                         </div>
                     </div>
                 </div>

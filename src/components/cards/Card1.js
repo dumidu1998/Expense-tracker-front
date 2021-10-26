@@ -1,7 +1,5 @@
+import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import React, { useEffect, useState, Fragment } from 'react'
-import { Dialog, Popover, Transition } from '@headlessui/react'
-
 import { useAtom } from 'jotai'
 import { editModal, modalopen } from '../../App';
 
@@ -36,7 +34,7 @@ function Card1() {
                         </h2>
                         <div className="flex flex-col ml-4">
                             <h2 className="text-xl flex font-semibold text-gray-800 mb-2 ml-1">Total Spent in {today.toLocaleString('default', { month: 'long' })}</h2>
-                            <h2 className="text-xl flex justify-center font-semibold mb-2 ml-5">Rs. {amnt.toFixed(2)}</h2>
+                            <h2 className="text-xl flex justify-center font-semibold mb-2 ml-5">Rs. {amnt.toLocaleString('en-US', { maximumFractionDigits: 2, minimumFractionDigits: 2 })}</h2>
                         </div>
                     </div>
                     <div className="shadow w-full bg-grey-light border-1 mt-7 rounded-lg mb-4">
