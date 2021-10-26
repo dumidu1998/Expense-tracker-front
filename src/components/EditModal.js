@@ -30,7 +30,7 @@ function EditModal() {
                     className="fixed inset-0 w-screen z-40 overflow-y-auto flex items-center justify-center backdrop-filter backdrop-blur-lg"
                     onClose={closeModal}
                 >
-                    <div className="min-h-screen w-11/12 lg:w-1/3 lg:px-0">
+                    <div className="h-5/6 w-11/12 lg:w-1/3 lg:px-0">
                         <Transition.Child
                             as={Fragment}
                             enter="ease-out duration-300"
