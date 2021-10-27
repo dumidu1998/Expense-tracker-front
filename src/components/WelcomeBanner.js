@@ -56,7 +56,7 @@ function WelcomeBanner() {
 
     return (
         <div>
-            <div className="relative bg-blue-400 p-4 sm:p-6 rounded-sm overflow-hidden">
+            <div className="relative bg-blue-400 p- sm:p-2 rounded-sm overflow-hidden">
                 <div className="relative">
                     <h1 className="text-2xl md:text-3xl text-gray-800 font-bold mb-1">Hello {username}👋</h1>
                     <div className="flex flex-col justify-end -mt-3">

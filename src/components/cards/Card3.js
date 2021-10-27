@@ -37,7 +37,7 @@ function Card3() {
                 </div>
             </div>
             <div className="flex-grow">
-                <div className="font-semibold text-gray-400 mb-4 mt-2">Last Month: Utilities</div>
+                <div className="font-semibold text-gray-400 mb-4 mt-2 lg:mb-2 lg:mt-4">Last Month: Utilities</div>
             </div>
         </div >
     )

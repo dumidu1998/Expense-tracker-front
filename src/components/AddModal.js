@@ -6,6 +6,7 @@ import { useAtom } from 'jotai'
 import { editModal, modalopen } from '../App';
 import axios from 'axios';
 import { editbudget } from './cards/Card2';
+import { useHistory } from 'react-router';
 
 function AddModal() {
     const [modalOpen, setModalOpen] = useAtom(modalopen);
@@ -27,6 +28,7 @@ function AddModal() {
     //     setModalOpen(true)
     // }
 
+    const history = useHistory();
     function submitExpense(e) {
         e.preventDefault();
         axios.post(`${process.env.REACT_APP_API_BASE_URL}/expense`, {
@@ -38,6 +40,8 @@ function AddModal() {
         })
             .then(function (response) {
                 closeModal()
+                history.push('/expenses')
+
             })
             .catch(function (error) {
                 console.log(error);
