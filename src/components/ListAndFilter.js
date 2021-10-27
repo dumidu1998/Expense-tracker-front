@@ -70,10 +70,16 @@ export default function ListAndFilter() {
         }
     }, [sdate, edate, selected, modalOpen, editModalstate, edtbudget])
 
+    function clear() {
+        setsdate(0)
+        setedate(0)
+        setSelected(people[0])
+    }
+
     return (
         <div>
             <header className="flex flex-col justify-center md:justify-end mx-8 mt-4 md:flex-row">
-                <DatePicker setday1={setsdate} setday2={setedate} />
+                <DatePicker setday1={setsdate} setday2={setedate} clear={clear} />
                 <div className="w-11/12 mx-auto mt-3 md:-mt-0 md:w-48">
                     <Listbox value={selected} onChange={setSelected}>
                         <div className="relative mt-1">
