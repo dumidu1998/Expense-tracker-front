@@ -115,7 +115,7 @@ function Card2() {
                                         <div className="my-5 text-left ml-5">
                                             <div className="mt-5">
                                                 <h3 className="font-primary text-lg font-semibold" autoFocus >New Budget</h3>
-                                                <input type="number" placeholder="Enter your New Budget" onChange={(e) => setEditedBudget(e.target.value)} autoComplete="off" step="0.01" min="100" name="name" className={`rounded-lg px-3 shadow-lg h-10 w-80 my-2 ml-1`} />
+                                                <input type="number" required placeholder="Enter your New Budget" onChange={(e) => setEditedBudget(e.target.value)} autoComplete="off" step="0.01" min="100" name="name" className={`rounded-lg px-3 shadow-lg h-10 w-80 my-2 ml-1`} />
                                             </div>
                                         </div>
                                     </div>

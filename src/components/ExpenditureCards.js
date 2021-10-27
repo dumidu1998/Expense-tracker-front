@@ -4,7 +4,7 @@ import { editModal } from '../App';
 import { editId } from '../App';
 
 
-export default function ExpenditureCards(props) {
+export default function ExpenditureCards({ data }) {
     // eslint-disable-next-line
     const [editModalstate, setEditModal] = useAtom(editModal);
     // eslint-disable-next-line
@@ -12,45 +12,44 @@ export default function ExpenditureCards(props) {
     const [imga, setimg] = useState('/fab.png');
 
     useEffect(() => {
-        switch (props.extype) {
-            case 'fab':
+        switch (data.expenseType) {
+            case 'Food and Beverages':
                 setimg('/fab.png');
                 break;
-            case 'health':
+            case 'Health Care':
                 setimg('/health.png');
                 break;
-            case 'transport':
+            case 'Transportation':
                 setimg('/trans.png');
                 break;
-            case 'entertainment':
+            case 'Entertainment':
                 setimg('/entert.png');
                 break;
-            case 'other':
+            case 'Other':
                 setimg('/other.png');
                 break;
             default:
                 setimg('/other.png');
                 break;
         }
-    }, [props.extype])
+    }, [data])
 
     return (
-        <div className="rounded-xl bg-blue-50 shadow-lg p-3 mb-1 my-1 ">
-            <div className="grid grid-cols-3 gap-1 md:-ml-8">
+        <div className="rounded-xl bg-blue-50 shadow-xl p-3 mb-2 my-1 border-gray-200 border-2">
+            <div className="grid grid-cols-3 gap-1 md:-ml-8 ">
 
                 <div className="col-span-full flex justify-center md:col-span-1 lg:justify-start lg:ml-16 md:-mx-32 lg:-mx-32 xl:justify-start xl::ml-16">
-                    <img src={imga} alt="badge" className="w-24" />
+                    <img src={imga} alt="badge" className="w-24 md:w-20 md:h-20 h-auto" />
                 </div>
-
                 <div className="col-span-full md:col-span-1 md:flex md:items-start md:flex-col md:justify-center lg:justify-start xl:justify-start lg:items-start">
-                    <div className="text-3xl font-bold md:text-2xl">Dinner at Avenra</div>
-                    <div className="text-lg text-gray-900">Dinner with friends</div>
-                    <div className="text-base text-gray-800">2018-10-25</div>
+                    <div className="text-3xl font-bold md:text-2xl">{data.title}</div>
+                    <div className="text-lg text-gray-900">{data.description}</div>
+                    <div className="flex items-center justify-center"><p className="w-40 bg-blue-800 text-white rounded-lg">{data.expenseType}</p></div>
+                    <div className="text-base text-gray-900">{new Date(data.date).toDateString()}</div>
                 </div>
-
                 <div className="px-3 col-span-full md:col-span-1 md:justify-center md:flex md:flex-col md:items-end">
-                    <div className="text-3xl font-bold">Rs. 1,500.00</div>
-                    <button className="float-right" onClick={() => { setEditId(12); setEditModal(true); }}>
+                    <div className="text-3xl font-bold">Rs. {data.amount.toLocaleString('en-US', { maximumFractionDigits: 2, minimumFractionDigits: 2 })}</div>
+                    <button className="float-right" onClick={() => { setEditId(data.expenseId); setEditModal(true); }}>
                         <div className="text-gray-800 text-lg flex flex-row mt-5 items-center">
                             Edit
                             <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -38,8 +38,8 @@ function Card1() {
                             <h2 className="text-xl flex justify-center font-semibold mb-2 ml-5">Rs. {amnt.toLocaleString('en-US', { maximumFractionDigits: 2, minimumFractionDigits: 2 })}</h2>
                         </div>
                     </div>
-                    <div className="shadow w-full bg-grey-light border-1 mt-7 rounded-lg mb-4">
-                        <div className="bg-blue-800 text-xs rounded-lg leading-none py-1 text-center text-white" style={{ 'width': `${precentage}%` }}>{precentage}%</div>
+                    <div className="shadow w-full bg-grey-light border-2 border-gray-300 mt-7 rounded-xl mb-4">
+                        <div className="bg-blue-800 text-xs rounded-xl leading-none py-1 text-center text-white" style={{ 'width': `${precentage}%` }}>{precentage}%</div>
                     </div>
                 </div>
             </div>

@@ -13,7 +13,7 @@ import EditModal from './components/EditModal';
 
 export const modalopen = atom(false);
 export const editModal = atom(false);
-export const editId = atom(1);
+export const editId = atom(0);
 
 function App() {
   return (
