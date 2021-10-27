@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Flatpickr from 'react-flatpickr';
 import "flatpickr/dist/themes/material_blue.css";
 export default function DatePicker({ setday1, setday2, clear }) {
