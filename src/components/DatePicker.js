@@ -18,21 +18,14 @@ export default function DatePicker({ setday1, setday2, clear }) {
         onChange: (selectedDates, dateStr, instance) => {
             instance.element.value = dateStr.replace('to', '-');
             var dd = selectedDates[0];
-            console.log(dd.getFullYear() + "-" + ('0' + (dd.getMonth() + 1)).slice(-2) + "-" + ('0' + dd.getDate()).slice(-2));
             setday1(dd.getFullYear() + "-" + ('0' + (dd.getMonth() + 1)).slice(-2) + "-" + ('0' + dd.getDate()).slice(-2));
 
             if (selectedDates.length === 2) {
                 var dd2 = selectedDates[1];
-                console.log(dd2.getFullYear() + "-" + ('0' + (dd2.getMonth() + 1)).slice(-2) + "-" + ('0' + dd2.getDate()).slice(-2));
                 setday2(dd2.getFullYear() + "-" + ('0' + (dd2.getMonth() + 1)).slice(-2) + "-" + ('0' + dd2.getDate()).slice(-2));
             }
         },
     }
-
-    // const [clearf, setclearf] = useState(false)
-    // useEffect(() => {
-    //     console.log("clearf")
-    // }, [clearf])
 
     return (
         <div className="flex flex-col justify-center items-center sm:flex-row">

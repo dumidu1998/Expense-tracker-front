@@ -49,6 +49,8 @@ function AddModal() {
     const [presentagev, setpresentagev] = useState(0)
 
     useEffect(() => {
+        var dd = new Date();
+        setdate(dd.getFullYear() + "-" + ('0' + (dd.getMonth() + 1)).slice(-2) + "-" + ('0' + dd.getDate()).slice(-2));
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/expense/cardsdata`)
             .then(function (response) {
                 setpresentagev(response.data.expenseUsage >= 100 ? 100 : response.data.expenseUsage)

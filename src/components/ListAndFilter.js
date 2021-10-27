@@ -12,7 +12,7 @@ const people = [
     { name: 'All', value: '0' },
     { name: 'Food and Beverages', value: 'Food and Beverages' },
     { name: 'Health Care', value: 'Health Care' },
-    { name: 'Transporation', value: 'Transporation' },
+    { name: 'Transportation', value: 'Transportation' },
     { name: 'Entertainment', value: 'Entertainment' },
     { name: 'Other', value: 'Other' },
 ]
@@ -28,21 +28,7 @@ export default function ListAndFilter() {
     const [edate, setedate] = useState(0);
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/expense/`)
-            .then(function (response) {
-                setCards(response.data);
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
-    }, [modalOpen, editModalstate, edtbudget, selected])
-
-
-    useEffect(() => {
         if (selected.value === '0' && sdate !== 0 && edate !== 0) {
-            console.log('dateonly')
-            console.log(sdate)
-            console.log(edate)
             axios.post(`${process.env.REACT_APP_API_BASE_URL}/expense/bydaterange`, {
                 startDate: sdate,
                 endDate: edate
@@ -54,9 +40,6 @@ export default function ListAndFilter() {
                     console.log(error);
                 })
         } else if (selected.value !== '0' && sdate !== 0 && edate !== 0) {
-            console.log('dateandcategory')
-            console.log(sdate)
-            console.log(edate)
             axios.post(`${process.env.REACT_APP_API_BASE_URL}/expense/bydatetype`, {
                 startDate: sdate,
                 endDate: edate,
@@ -76,8 +59,16 @@ export default function ListAndFilter() {
                 .catch(function (error) {
                     console.log(error);
                 })
+        } else if (selected.value === '0' && sdate === 0 && edate === 0) {
+            axios.get(`${process.env.REACT_APP_API_BASE_URL}/expense`)
+                .then(function (response) {
+                    setCards(response.data);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
         }
-    }, [sdate, edate, selected])
+    }, [sdate, edate, selected, modalOpen, editModalstate, edtbudget])
 
     return (
         <div>

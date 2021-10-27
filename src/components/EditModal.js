@@ -45,7 +45,6 @@ function EditModal() {
             amount: amount
         })
             .then(function (response) {
-                console.log(date)
                 closeModal()
             })
             .catch(function (error) {
