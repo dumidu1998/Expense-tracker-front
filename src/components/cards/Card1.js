@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useAtom } from 'jotai'
 import { editModal, modalopen } from '../../App';
+import { editbudget } from './Card2';
 
 function Card1() {
     const today = new Date()
@@ -9,17 +10,17 @@ function Card1() {
     const [precentage, setprecentaget] = useState(0);
     const [modalOpen] = useAtom(modalopen);
     const [editModalstate] = useAtom(editModal);
-
+    const [edtbudget] = useAtom(editbudget);
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_BASE_URL}/expense/cardsdata`)
             .then(function (response) {
                 setamnt(response.data.totalSpent);
-                setprecentaget(response.data.expenseUsage);
+                setprecentaget(response.data.expenseUsage >= 100 ? 100 : response.data.expenseUsage);
             })
             .catch(function (error) {
-                console.log(error.response.data);
+                console.log(error);
             })
-    }, [modalOpen, editModalstate])
+    }, [modalOpen, editModalstate, edtbudget])
 
 
     return (

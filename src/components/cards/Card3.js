@@ -5,9 +5,7 @@ import { editModal, modalopen } from '../../App';
 
 function Card3() {
 
-
     const [cat, setcat] = useState('');
-    const [precentage, setprecentaget] = useState(0);
     const [modalOpen] = useAtom(modalopen);
     const [editModalstate] = useAtom(editModal);
 
@@ -17,7 +15,7 @@ function Card3() {
                 setcat(response.data.topSpentCat);
             })
             .catch(function (error) {
-                console.log(error.response.data);
+                console.log(error);
             })
     }, [modalOpen, editModalstate])
 

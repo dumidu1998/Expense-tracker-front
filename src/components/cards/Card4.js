@@ -17,7 +17,7 @@ function Card4() {
                 setbudget(response.data);
             })
             .catch(function (error) {
-                console.log(error.response.data);
+                console.log(error);
             })
 
 
@@ -27,9 +27,10 @@ function Card4() {
                 setprecentaget(response.data.lastExpense / budget * 100);
             })
             .catch(function (error) {
-                console.log(error.response.data);
+                console.log(error);
             })
-    }, [modalOpen, editModalstate])
+    }, [modalOpen, editModalstate, budget])
+
     return (
         <div className="flex flex-col col-span-full md:col-span-2 sm:col-span-4 xl:col-span-1 bg-white shadow-lg rounded-sm border border-gray-200">
             <div className="px-5 pt-5">
