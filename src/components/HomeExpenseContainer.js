@@ -23,7 +23,7 @@ function HomeExpenseContainer(props) {
     }, [modalOpen, editModalstate, edtbudget])
 
     return (
-        <div>
+        <div className="">
             <header className="px-5 py-4 border-b border-gray-100 flex justify-center">
                 <h1 className="text-2xl font-semibold">Last Expenditures</h1>
             </header>

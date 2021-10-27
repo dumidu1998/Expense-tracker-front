@@ -21,7 +21,7 @@ function Dashboard() {
                     <Card3 />
                     <Card4 />
                 </div>
-                <div className="grid grid-cols-2 gap-6 mt-5 h-52">
+                <div className="grid grid-cols-2 gap-6 mt-5">
                     <LineGraph />
                     <PieChart />
                 </div>
