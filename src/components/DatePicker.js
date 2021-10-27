@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Flatpickr from 'react-flatpickr';
 import "flatpickr/dist/themes/material_blue.css";
-export default function DatePicker() {
+export default function DatePicker({ setday1, setday2, clear }) {
 
     const options = {
         mode: 'range',
@@ -17,13 +17,28 @@ export default function DatePicker() {
         },
         onChange: (selectedDates, dateStr, instance) => {
             instance.element.value = dateStr.replace('to', '-');
+            var dd = selectedDates[0];
+            console.log(dd.getFullYear() + "-" + ('0' + (dd.getMonth() + 1)).slice(-2) + "-" + ('0' + dd.getDate()).slice(-2));
+            setday1(dd.getFullYear() + "-" + ('0' + (dd.getMonth() + 1)).slice(-2) + "-" + ('0' + dd.getDate()).slice(-2));
+
+            if (selectedDates.length === 2) {
+                var dd2 = selectedDates[1];
+                console.log(dd2.getFullYear() + "-" + ('0' + (dd2.getMonth() + 1)).slice(-2) + "-" + ('0' + dd2.getDate()).slice(-2));
+                setday2(dd2.getFullYear() + "-" + ('0' + (dd2.getMonth() + 1)).slice(-2) + "-" + ('0' + dd2.getDate()).slice(-2));
+            }
         },
     }
 
+    // const [clearf, setclearf] = useState(false)
+    // useEffect(() => {
+    //     console.log("clearf")
+    // }, [clearf])
 
     return (
         <div className="flex flex-col justify-center items-center sm:flex-row">
-            <p className="font-semibold mx-5 flex flex-row items-center">Filter Expenses <button className="btn text-gray-400 ml-5 text-lg md:text-base" onClick={() => { alert("aaa"); }}>Clear</button></p>
+            <p className="font-semibold mx-5 flex flex-row items-center">Filter Expenses
+                {/* <button className="btn text-gray-400 ml-5 text-lg md:text-base" onClick={() => { clear(e => !e); setclearf(!clearf) }}>Clear</button> */}
+            </p>
             <Flatpickr className="form-input px-4 border-2 mr-5 text-gray-500 h-8 hover:text-gray-600 font-medium focus:border-gray-300 w-60" options={options} />
         </div >
     )

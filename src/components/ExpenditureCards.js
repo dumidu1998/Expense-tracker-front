@@ -39,7 +39,7 @@ export default function ExpenditureCards({ data }) {
             <div className="grid grid-cols-3 gap-1 md:-ml-8 ">
 
                 <div className="col-span-full flex justify-center md:col-span-1 lg:justify-start lg:ml-16 md:-mx-32 lg:-mx-32 xl:justify-start xl::ml-16">
-                    <img src={imga} alt="badge" className="w-24 md:w-20 md:h-20 h-auto" />
+                    <img src={imga} alt="badge" className="w-24 md:w-20 md:h-16 md:my-auto h-auto" />
                 </div>
                 <div className="col-span-full md:col-span-1 md:flex md:items-start md:flex-col md:justify-center lg:justify-start xl:justify-start lg:items-start">
                     <div className="text-3xl font-bold md:text-2xl">{data.title}</div>
